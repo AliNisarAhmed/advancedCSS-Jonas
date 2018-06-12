@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box;   this sould be set to inherit so that all elements in the body inherit this setting from the body*/
+
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* This defines what 1rem would equal to (10px).This is the font-size of root element to enable us to use rems, however, setting it in px is bad practice as user may have changed browser default fontsize, but this setting forces it to be 10px, so better to use % here, allowing user to change fontsize and zoom-in and zoom-out */
+}
+
+body {
+  box-sizing: border-box; /* placed here so that * element can then inherit it and apply to all child elements. */
+}
