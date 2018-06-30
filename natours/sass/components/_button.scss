@@ -71,12 +71,12 @@
   &:hover {
     background-color: $color-primary;
     color: $color-white;
-    box-shadow: 0 1rem 2rem regba($color-black, .15);
+    box-shadow: 0 10px 20px rgba($color-black, .15);
     transform: translateY(-7px);
   }
 
   &:active {
-    box-shadow: 0 .5rem 1rem regba($color-black, .15);
+    box-shadow: 0 5px 6px rgba($color-black, .15);
     transform: translateY(0);
   }
 }

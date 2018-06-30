@@ -166,11 +166,11 @@ body {
 .btn-text:hover {
   background-color: #55c57a;
   color: #fff;
-  box-shadow: 0 1rem 2rem regba(#000, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-7px); }
 
 .btn-text:active {
-  box-shadow: 0 0.5rem 1rem regba(#000, 0.15);
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
 .section-about {
