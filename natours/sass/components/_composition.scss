@@ -33,7 +33,7 @@
     }
   }
 
-  &:hover &__photo:not(:hover) {  // all photos inside compisition(hovered) which are actually not hovered.
+  &:hover &__photo:not(:hover) {  // all photos inside composition(hovered) which are actually not hovered.
     transform: scale(0.95);
   }
 }
