@@ -1,0 +1,42 @@
+.card {
+  // perspective property is on the parent
+  perspective: 150rem;
+  -moz-perspective: 150rem; // so that it works on mozilla firefox
+  position: relative;
+  height: 50rem; // this height is necessary to avoid parent collapsing due to absolute positioning on the childs
+  
+  &__side { // generic properties for both sides of the card
+    background-color: orangered;
+    height: 50rem;
+    transition: all 0.8s ease;    
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; //determines whether the back face of an element is visible when turned towards the user.
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
