@@ -1,0 +1,45 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;  //this padding was lost due to translate transform below
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  /*
+  & > * {
+    transform: skewX(12deg);  
+  }
+   
+    // The above code is used to nullify the effect of skewing of parent on child elements
+
+    // this nullifies the skew above, but for __text only, as the __shape already has a tranform prop, and two tranform props are not allowed in CSS for now
+
+    // hence, we must use the reverse skew prop individually on each child
+
+  */
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // background-color: orangered; // color added for testing before image was included
+    -webkit-shape-outside: circle(50% at 50% 50%); // webkit prefix for use in safari and chrome
+    shape-outside: circle(50% at 50% 50%);  //shape-outside property works only if the element is 'floated' and has a determined width and height
+   
+    clip-path: circle(50% at 50% 50%);  // circle(radius at centrepoint centerpoint)
+    transform: translateX(-3rem) skewX(12deg);  // since this element is floated, instead of using margin and other props to create space, better to use tranform:translate, skew added later
+  }
+
+  &__image {
+    height: 100%;  // without specifying image height it will be its actual dimension, hence it may be cut out.
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+}
