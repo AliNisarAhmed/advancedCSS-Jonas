@@ -18,7 +18,7 @@
 
     // this nullifies the skew above, but for __text only, as the __shape already has a tranform prop, and two tranform props are not allowed in CSS for now
 
-    // hence, we must use the reverse skew prop individually on each child
+    // hence, we must use the 'reverse' skew props individually on each child
 
   */
 
@@ -32,14 +32,43 @@
    
     clip-path: circle(50% at 50% 50%);  // circle(radius at centrepoint centerpoint)
     transform: translateX(-3rem) skewX(12deg);  // since this element is floated, instead of using margin and other props to create space, better to use tranform:translate, skew added later
+
+    position: relative;
   }
 
   &__image {
     height: 100%;  // without specifying image height it will be its actual dimension, hence it may be cut out.
+    transform: translateX(-4rem) scale(1.4);  // to center the image in the circle
+    backface-visibility: hidden;  // translate above may cause the circle to take a weird shape
+    transition: all 0.5s;
   }
 
   &__text {
     transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;   
+    opacity: 0; 
+    transition: all 0.5s;
+    backface-visibility: hidden; 
+  }
+
+  &:hover &__caption{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
   }
 
 }
