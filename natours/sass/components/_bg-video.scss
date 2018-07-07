@@ -1,0 +1,16 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+  
+  &__content {
+    height: 100%;
+    width: 100%;  //setting height and width to 100% still does not mae the video cover entirety of the section. therefore we use object-fit
+    object-fit: cover;
+  }
+}
