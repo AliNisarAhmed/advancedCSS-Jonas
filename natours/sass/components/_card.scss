@@ -18,7 +18,7 @@
     left: 0;
     width: 100%;
     backface-visibility: hidden; //determines whether the back face of an element is visible when turned towards the user.
-    border-radius: 3px;
+    border-radius: $bordRadius;
     overflow: hidden; // because the child image is overflowing and hindering the border radius, overflow hidden means rounded corners are visible.
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
