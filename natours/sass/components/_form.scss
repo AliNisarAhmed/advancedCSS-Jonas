@@ -14,6 +14,7 @@
     border-bottom: 3px solid transparent;  // when the input is focused, the border is created, due to which elements below are pushed down 3px, so we add an invisible border to initial state of the form to nullfily that.
     width: 90%;
     display: block;
+    transition: all .3s;  // to animate the color change
 
     &:focus {
       outline: none;
@@ -45,5 +46,52 @@
     opacity: 0;
     visibility: hidden; // visiblility cannot be animated
     transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.4rem;
+
+    &::after {  // this is to have two separate elements for radio button, one outer circle, and one inner circle which is shown when the radio button is clicked
+      content: ''; // must be specified  everytime a pseudoelement is used
+      display: block;  // must be specified  everytime a pseudoelement is used
+      height: 1.3rem; 
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;  // for absolute positioning, the parent can have position absolute or relative, what is required is that position property is defined.
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
   }
 }
