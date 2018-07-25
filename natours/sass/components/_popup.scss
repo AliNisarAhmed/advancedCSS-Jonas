@@ -7,15 +7,21 @@
   left: 0;
   background-color: rgba($color-black, .8);
   z-index: 6000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
 
   &__content {
-    @include centerElement;
+    @include centerElement; //we cant use the mixin because we have to use another transnform below
     width: 75%;
     background-color: $color-white;
     box-shadow: 0 2rem 4rem rgba($color-black, .2);
     border-radius: 3px;
     display: table; // parent element should have display: table;
     overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.3);
+    transition: all 0.4s .2s;
   }
 
   &__left {
@@ -51,5 +57,37 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; 
+  }
+
+  // POPup open state
+
+  &:target {  // popup becomes the target when the button with 'anchor' in the html is clicked.
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // to remove the above popup, we make a 'cross' button with anchor of the 'section-tours, so that when the button is clicked, the target changes from #popu to #section-tours, and thus the above styles are no longer applied
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 1rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
