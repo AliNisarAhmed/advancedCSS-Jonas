@@ -1,3 +1,18 @@
+/*
+0-600px => Phone
+600 - 900px => Tablet Portrait
+900 - 1200px => Tablet Landscape
+1200 - 1800px => Normal styles for Desktop
+1800+ px => Big Desktops
+
+
+
+  $breakpoint argument choices
+  - phone
+  - tab-port
+  - tab-land
+  - big-desk
+*/
 *,
 *::after,
 *::before {
@@ -9,6 +24,15 @@
 html {
   font-size: 62.5%;
   /* This defines what 1rem would equal to (10px).This is the font-size of root element to enable us to use rems, however, setting it in px is bad practice as user may have changed browser default fontsize, but this setting forces it to be 10px, so better to use % here, allowing user to change fontsize and zoom-in and zoom-out */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
