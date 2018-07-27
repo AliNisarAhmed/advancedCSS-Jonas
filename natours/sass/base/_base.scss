@@ -16,7 +16,7 @@ html {
   }
   
   @include respond(tab-port) {
-    font-size: 50%  // this makes 1rem = 16/2 = 8px;
+    font-size: 50%;  // this makes 1rem = 16/2 = 8px;
   }
 
   @include respond(big-desk) {
@@ -26,4 +26,9 @@ html {
 
 body {
   box-sizing: border-box; /* placed here so that * element can then inherit it and apply to all child elements. */
+  padding: 3rem;
+
+  @include respond(tab-port) {  // To remove the all-side padding when screen size gets to tab-port mode
+    padding: 0;  // this makes 1rem = 16/2 = 8px;  
+  }
 }
