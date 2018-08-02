@@ -234,8 +234,7 @@
 
   &__stars {
     //flex: 1;
-    background-color: orangered;
-    margin-right: auto;
+    margin-right: auto;  //This produces the same result as flex:1 but has the benefit that the component width is not altered. This is a powerful technique in flexbox
   }
 
   &__icon-star,
