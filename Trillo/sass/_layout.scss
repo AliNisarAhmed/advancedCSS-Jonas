@@ -43,6 +43,7 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+  font-size: 1.4rem;  // will be inherited by both .description and .user-reviews will inherit it
 }
 
 .description {
@@ -55,6 +56,10 @@
 }
 
 .user-reviews {
-  background-color: yellowgreen;
+  // background-color: yellowgreen;
   flex: 1;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
