@@ -38,6 +38,13 @@ Grey dark 3: #999
 
 }
 
+// Variables for media queries cannot be declared as CSS Variables,
+// Hence we declare them as SASS variables
+
+$bp-largest: 75em; // 1200px / 16 (16 is global font size)
+$bp-large: 68.75em; // 1100px / 16
+$bp-medium: 56.25em;   // 900px / 16
+
 * {
   margin: 0;
   padding: 0;
@@ -52,6 +59,10 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; // so that 1rem = 10px
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;  // to make 1rem = 8px, 8/16 = 50%
+  }
 }
 
 body {
