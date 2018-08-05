@@ -448,16 +448,18 @@
     margin-right: .7rem;
 
     // For older browsers to include svg, alternative to including svg in HTML
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
-    // For Newer Browsers - we use masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg); 
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg); 
-    mask-size: cover;
-
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {  // if these are supported then below props will apply, else the above two will apply
+      // For Newer Browsers - we use masks
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg); 
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg); 
+      mask-size: cover;
+      background-image: none;  // this removes the back image set above which interferes in browsers that support
+    }
   }
 }
 
