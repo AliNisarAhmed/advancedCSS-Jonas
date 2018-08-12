@@ -39,4 +39,14 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+
+  // The 1fr columns to both side of repeat fixed width columns are used to center the 8 content columns
+
+  // These 1fr columns allow us to make 'full-bleed' sections, which extend out of the center 8 columns to the left and right.
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];  //14rem = 14 * 8 px
+
+  & > * {  // TESTING
+    padding: 4rem;
+    font-size: 3rem;
+  }
 }
