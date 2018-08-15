@@ -16,14 +16,14 @@
     width: 100%;
     grid-row: 2 / 6;
     grid-column: 2 / 6;
-    // even after setting the above properties, the image will not fit evenly between the rows anc columsn specified above as images have aspect ratio which they try to maintain.
+    // even after setting the above properties, the image will not fit evenly between the rows and columsn specified above as images have aspect ratio which they try to maintain.
     // That is why, we have to use align-items: center above to center the image
 
     box-shadow: 0 2rem 5rem rgba(#000, 0.1);
   }
 
   &__img--2 {
-    width: 115%;
+    width: 115%;  // This makes the image glid over the adjacent part
 
     grid-row: 4 / 6;
     grid-column: 4 / 7;
