@@ -4,6 +4,8 @@
 
   margin: 15rem 0;
 
+  /*  This has been commented out to simulate a browser npt supporting CSS Grid
+
   display: grid;
   // grid-template-columns: repeat(3, 1fr); // this is commented out because we want to change the grid layout when the screen gets smaller, achieved below.
 
@@ -14,9 +16,29 @@
   grid-gap: 6rem;
   
   align-items: start;  // since this prop is stretch by default, we change it to start, so that all children items are moved to the start of the parent grid, without it all the items stretch to fill the complete parent grid, hence out-aligning the headings and texts
+
+  */
+
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start; 
+  }
 }
 
 .feature {
+
+  float: left;
+  width: 33.3333%;
+  margin-bottom: 6rem;
+
+  @supports(display: grid) {
+    // we now have to reset the above code in case the browser support CSS Grid
+    // not everything needs to be reset, floats, display: inline-block, display: table-cell; are ingnored by CSS grid and flexbox hence they need not be reset.
+    width: auto;
+    margin-bottom: 0;
+  }
 
   display: grid;
   grid-template-columns: min-content 1fr;
